@@ -1862,7 +1862,7 @@ def get_displayed_text(text):
         if isinstance(text, str):
             try:
                 text = eval(text)
-            except:
+            except Exception:
                 text = str(text)
         if isinstance(text, list):
             if config["list_as_text"]["text_list_prefix_type"] == "alphabet":
@@ -2115,7 +2115,7 @@ def annotate_page(username=None, action=None):
 
                     # If it's not a text area, let's see if this is the button
                     # that was checked, and if so mark it as checked
-                    if (input_field.name != "textarea") and ("value" in input_field) and (input_field["value"] != value):
+                    if (input_field.name != "textarea") and (input_field["value"] != value):
                         continue
                     else:
                         input_field["checked"] = True
